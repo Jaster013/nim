@@ -1,4 +1,5 @@
 import random
+import tkinter as tk
 
 class player:
 
@@ -43,10 +44,10 @@ class AI(player):
 class Stack:
 
     def __init__(self):
-        self.__stack = random.randint(1,10)
+        self.__stack = tk.IntVar(random.randint(1, 10))
 
     def setStack(self):
-        self.__stack = random.randint(1,10)
+        self.__stack.set(random.randint(1, 10))
 
     def getStack(self):
         return self.__stack

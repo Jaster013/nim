@@ -1,5 +1,6 @@
 import tkinter
 import tkinter.messagebox
+
 import Spel
 
 class Gui:
@@ -8,11 +9,11 @@ class Gui:
 
         #Variables
         name = ''
-        stack1 = Spel.Stack
-        stack2 = Spel.Stack
-        stack3 = Spel.Stack
-        ai = Spel.AI
-        human = Spel.Human(name)
+        self.stack1 = Spel.Stack
+        self.stack2 = Spel.Stack
+        self.stack3 = Spel.Stack
+        self.ai = Spel.AI
+        self.human = Spel.Human(name)
 
         #Frames
         self.frame1 = tkinter.Frame(self.main_window)
@@ -30,8 +31,8 @@ class Gui:
 
         #Name frame
         self.label_name = tkinter.Label(self.frame1, text = 'Naam:')
-        self.player_name = tkinter.Entry(self.frame2, textvariable = human.getName)
-        self.AI_name = tkinter.Entry(self.frame3, textvariable = ai.getName)
+        self.player_name = tkinter.Entry(self.frame2, textvariable=self.human.getName)
+        self.AI_name = tkinter.Entry(self.frame3, textvariable=self.ai.getName)
 
         self.label_name.pack(side ='top')
         self.player_name.pack(side ='top')
@@ -39,8 +40,8 @@ class Gui:
 
         #Move frame
         self.moves_label = tkinter.Label(self.frame1, text = 'Aantal zetten:')
-        self.player_moves = tkinter.Entry(self.frame2, textvariable = human.getMoves)
-        self.AI_moves = tkinter.Entry(self.frame3, textvariable = ai.getMoves)
+        self.player_moves = tkinter.Entry(self.frame2, textvariable=self.human.getMoves)
+        self.AI_moves = tkinter.Entry(self.frame3, textvariable=self.ai.getMoves)
 
         self.moves_label.pack(side ='top')
         self.player_moves.pack(side ='top')
@@ -56,9 +57,9 @@ class Gui:
         self.stack3_label.pack(side ='top')
 
         #Balls left frame
-        self.stack1_balls = tkinter.Entry(self.frame1, textvariable = stack1.getStack)
-        self.stack2_balls = tkinter.Entry(self.frame2, textvariable = stack2.getStack)
-        self.stack3_balls = tkinter.Entry(self.frame3, textvariable = stack3.getStack)
+        self.stack1_balls = tkinter.Entry(self.frame1, textvariable=self.stack1.getStack)
+        self.stack2_balls = tkinter.Entry(self.frame2, textvariable=self.stack2.getStack)
+        self.stack3_balls = tkinter.Entry(self.frame3, textvariable=self.stack3.getStack)
 
         self.stack1_balls.pack(side ='top')
         self.stack2_balls.pack(side ='top')
@@ -90,10 +91,11 @@ class Gui:
         tkinter.mainloop()
 
     def New(self):
-        y=2
+        pass
 
     def Set(self):
-        x=1
+        pass
 
 
-gui = Gui()
+if __name__ == "__main__":
+    gui = Gui()
