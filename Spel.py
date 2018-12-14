@@ -1,12 +1,13 @@
 import random
 import tkinter as tk
 
+
 class player:
 
     def __init__(self):
         self.__moves = 0
 
-    def setMoves(self,moves):
+    def setMoves(self, moves):
         self.__moves = moves
 
     def addMove(self):
@@ -18,28 +19,30 @@ class player:
 
 class Human(player):
 
-    def __init__(self,name):
+    def __init__(self, name):
         player.__init__(self)
         self.__name = name
 
-    def setName(self,name):
+    def setName(self, name):
         self.__name = name
 
     def getName(self):
         return self.__name
+
 
 class AI(player):
 
     def __init__(self):
         player.__init__(self)
 
-        list = ['Hall','Genesis','Enigma','Machina','Jarvis']
-        choice = random.randint(0,len(list)-1)
+        list = ['Hall', 'Genesis', 'Enigma', 'Machina', 'Jarvis']
+        choice = random.randint(0, len(list) - 1)
         name = list[choice]
         self.__name = name
 
     def getName(self):
         return self.__name
+
 
 class Stack:
 
@@ -52,12 +55,12 @@ class Stack:
     def getStack(self):
         return self.__stack
 
-    def takeBalls(self,balls):
+    def takeBalls(self, balls):
         if self.__stack < balls:
             print("Error, you can can't take this many")
         else:
             self.__stack -= balls
 
     def aiMove(self):
-        take = random.randint(1,self.__stack)
+        take = random.randint(1, self.__stack)
         self.__stack -= take
